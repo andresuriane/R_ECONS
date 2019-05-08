@@ -1,0 +1,18 @@
+help (abs)
+x = 10
+x
+.Last.value
+y <-13
+91
+.Last.value
+getwd()
+setwd("/home/econs/Documentos/Exemplo")
+dir()
+install.packages("XLConnect")
+library("XLConnect")
+install.packages("rJava")
+install.packages("XLConnect")
+installed.packages()
+library("XLConnect")
+dataxls <- read.xlsx
+install.packages("xlsx")
