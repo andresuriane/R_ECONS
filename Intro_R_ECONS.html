@@ -13017,45 +13017,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
 
 
 <style type="text/css">
@@ -13146,12 +13107,13 @@ div#notebook {
 </li>
 </ul>
 <ul>
-<li><a href="#3-Operações-básicas-no-R">3 Operações básicas no R</a><ul>
+<li><a href="#3-Objetos-básicas">3 Objetos básicos</a><ul>
 <li><a href="#3.1-Vetores">3.1 Vetores</a></li>
 <li><a href="#3.2-Arrays">3.2 Arrays</a></li>
 <li><a href="#3.3-Matrizes">3.3 Matrizes</a></li>
 <li><a href="#3.4-Listas">3.4 Listas</a></li>
 <li><a href="#3.5-Data-frames">3.5 Data frames</a></li>
+<li><a href="#3.6-Funcões">3.6 Funções</a></li>
 </ul>
 </li>
 </ul>
@@ -13167,7 +13129,7 @@ div#notebook {
 <li><a href="#5.1-Estatísticas-descritivas">5.1 Estatísticas descritivas</a></li>
 <li><a href="#5.2-Tabelas">5.2 Tabelas</a></li>
 <li><a href="#5.3-Estatística-multivariada">5.3 Estatística multivariada</a></li>
-<li><a href="#5.4-Funções">5.4 Funções</a></li>
+<li><a href="#5.4-Funções-e-estruturas-de-controle-e-repetição">5.4 Funções e estruturas de controle e repetição</a></li>
 <li><a href="#5.5-Regressão-simples">5.5 Regressão simples</a></li>
 </ul>
 </li>
@@ -13280,7 +13242,7 @@ obter mais informações sobre determinada função. (Podemos usar também o pai
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">help</span><span class="p">(</span><span class="n">comando</span><span class="p">)</span> <span class="c1"># sintaxe </span>
 <span class="nf">help</span><span class="p">(</span><span class="n">sqrt</span><span class="p">)</span>
-<span class="nf">help</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">)</span>
+<span class="nf">help</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">)</span>   <span class="c1">#ajuda sobre o comando de raiz quadrada</span>
 <span class="o">?</span><span class="n">sqrt</span>
 <span class="nf">help.search</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">)</span>
 </pre></div>
@@ -13351,6 +13313,10 @@ Para installar um pacote use <code>install.packages("pkg.name")</code> ou use o 
 <tr>
 <td style="text-align:left"><a href="https://www.rdocumentation.org/packages/RSQLite">RSQLite</a></td>
 <td style="text-align:right">Conectar com bases SQLite (requer DBI)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://www.tidyverse.org/"><strong>tidyverse</strong></a></td>
+<td style="text-align:right">Data science</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Gráficos</strong></td>
@@ -13485,12 +13451,13 @@ Para installar um pacote use <code>install.packages("pkg.name")</code> ou use o 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">5</span> <span class="c1"># x recebe o valor 5</span>
 <span class="n">x</span> <span class="o">=</span> <span class="m">19</span> <span class="c1"># x recebe o valor 19</span>
-<span class="nf">assign </span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="m">2i</span><span class="p">)</span> <span class="c1"># x recebe o numero imaginario 2i</span>
+<span class="nf">assign </span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="m">2i</span><span class="p">)</span> <span class="c1"># x recebe o numero imaginario 2i  </span>
+<span class="c1">#obs: o ultimo valor que x recebe é o que permanece, neste caso x=19</span>
 </pre></div>
 
     </div>
@@ -13510,11 +13477,11 @@ Qualquer valor digitado sem atribuição pode ser mostrado na tela.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">50</span>
-<span class="n">x</span><span class="o">/</span><span class="m">20</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">50</span>    <span class="c1"># x recebe o valor 50</span>
+<span class="n">x</span><span class="o">/</span><span class="m">20</span>        <span class="c1"># x dividido por 20</span>
 </pre></div>
 
     </div>
@@ -13543,11 +13510,11 @@ Qualquer valor digitado sem atribuição pode ser mostrado na tela.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">x</span>  <span class="o">&lt;-</span> <span class="m">10</span><span class="o">:</span><span class="m">20</span>
-<span class="n">x[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span>  <span class="o">&lt;-</span> <span class="m">10</span><span class="o">:</span><span class="m">20</span>    <span class="c1"># cria uma sequencia de números de 10 a 20</span>
+<span class="n">x[1</span><span class="o">:</span><span class="m">5</span><span class="n">]</span>    <span class="c1"># mostra os 5 primeiros números da sequencia criada</span>
 </pre></div>
 
     </div>
@@ -13583,7 +13550,7 @@ Qualquer valor digitado sem atribuição pode ser mostrado na tela.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">((</span><span class="m">10</span><span class="o">:</span><span class="m">20</span><span class="p">)</span><span class="n">^2</span><span class="p">)</span><span class="o">==</span><span class="nf">sum</span><span class="p">(</span><span class="n">x^2</span><span class="p">)</span>
@@ -13605,7 +13572,7 @@ Qualquer valor digitado sem atribuição pode ser mostrado na tela.</p>
 
 
 <div class="output_html rendered_html output_subarea ">
-FALSE
+TRUE
 </div>
 
 </div>
@@ -13616,12 +13583,12 @@ FALSE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="m">101</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">&lt;-</span> <span class="m">1</span> <span class="o">-</span> <span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span>  <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="m">101</span><span class="p">)</span>               <span class="c1"># cria uma sequencia de 0 a 50 com 101 números</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="m">1</span> <span class="o">-</span> <span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>                <span class="c1"># cria um valor para y</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span>  <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">)</span>   <span class="c1"># constrói um gráfico com as variáveis x e y na cor azul</span>
 </pre></div>
 
     </div>
@@ -13641,493 +13608,486 @@ FALSE
 
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAIAAAByhViMAAAACXBIWXMAABJ0AAASdAHeZh94
-AAAgAElEQVR4nOzdeZyO9f7H8fcsZoYZDFL2wmSP7FsUsqdCnIOSpV9kKcvpdFJKnbRIyJa1
-SFEqqYiDkn1XSdLIWKYsI7MY26zf3x/Tz/GTmOW67uu+r/v1fPTokZnr+n4/HjLznu8aYIwR
-AAAAfF+g0wUAAADAGgQ7AAAAlyDYAQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwA
-AABcgmAHAADgEgQ7AAAAlyDYAQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABc
-gmAHAADgEgQ7AAAAlyDYAQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAH
-AADgEgQ7AAAAlyDYAQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADg
-EgQ7AAAAlyDYAQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADgEgQ7
-AAAAlyDYAQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADgEgQ7AAAA
-lyDYAQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADgEgQ7AAAAlyDY
-AQAAuATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADgEgQ7AAAAlyDYAQAA
-uATBDgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADgEgQ7AAAAlyDYAQAAuATB
-DgAAwCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADgEgQ7AAAAlyDYAQAAuATBDgAA
-wCUIdgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcgmAHAADgEgQ7AAAAlyDYAQAAuATBDgAAwCUI
-dgAAAC5BsAMAAHAJgh0AAIBLEOwAAABcItjpAnzD999/n56e7nQVAADAKwQHB9eqVcvpKq6C
-YHd9O3furF+/vtNVAAAAL7Jjx4569eo5XcWVCHbXl5qaKiklJSUkJMTpWgAAgMNSU1NDQ0Oz
-4oG3YY0dAACASxDsAAAAXIJgBwAA4BIEOwAAAJcg2AEAALgEwQ4AAMAlCHYAAAAuQbADAABw
-CYIdAACASxDsAAAAXIJgBwAA4BIEOwAAAJcg2AEAALgEwQ4AAMAlCHYAAAAuQbADAABwCR8L
-dufOndu7d29SUtJVP3vixIkjR454uCQAAAAv4TPBLjo6ukWLFoUKFbrtttuKFi3arVu3Y8eO
-XfFM586db7nlFieqAwAAcF6w0wVkS2xsbL169ZKTk5s2bVquXLm1a9d+/PHH27Zt27RpU9my
-ZZ2uDgAAwCv4xojd008/nZycvGDBgo0bNy5cuPDYsWPDhw+PjY198MEHjTFOVwcAAOAVfCPY
-bdmypVmzZg8++GDWLwMCAt54443u3buvX79+3rx5jpbmct99p8xMp4sAAADZ4xvB7rfffitX
-rtzlHwkICJg8eXKhQoWefvrpv9pLgTzau1d16uidd5yuAwAAZI9vBLvSpUuvX78+IyPj8g/e
-dNNNr7zyysmTJ3v37s2ErB3GjVNoqP79b6WkOF0KAADIBt8Idl26dImNje3evfvx48cv//ig
-QYM6dOjw+eef/+Mf/zh//rxT5blSbKw++EDvv6/z5zVnjtPVAACAbPCNYDd69OgaNWosWbKk
-VKlSpUuXPnDgwKVPvfvuu40bN54wYULZsmX379/vYJEuM26cqlVT584aMUJjx4rYDACA9/ON
-YFeoUKEtW7a89tprdevWTUlJuXxwrlixYl9//fVzzz0XFhaWmJjoYJFucvq03nlHo0YpIEBD
-hyozU2+95XRNAADgegJcszotMzPz6NGjhw8fvuuuu6xtefPmzU2bNk1JSQkJCbG2Za81erQW
-LlR0tIKCJGnSJI0dq5gYFSzodGUAADgtNTU1NDR006ZNTZo0cbqWK/nGiF12BAYG3nLLLZan
-Oj907pzeektPPfVHqpM0cKDy59fkyY6WBQAArsc9wQ5WeestBQerd+//fiQsTKNG6fXXFR/v
-XFkAAOB6fONKsew4fvx4hw4dJH377bfZf+vIkSOtW7e+4iCVK5w7d07StZ9xjbQ0TZ6sESMU
-Fvb/Pt6/v15/XRMn6t//dqgyAABwPe4Jdqmpqd99911O3ypduvRrr72Wnp5+jWdWr149e/Zs
-Pwl28+crKUkDBlz58Xz5NHq0hg7V0KG68UYnKgMAANfjnmB30003rVmzJqdvBQcHd+7c+drP
-xMfHz549O7d1+ZLMTE2YoCFDVLjwVT770EMaN06vv67XX/d4ZQAAIBvcs8YuLCysVatWrVq1
-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
-SURBVHaakmLatjUVKjjwRxwdbcqUMR07evQCRmPMa6+Z4GAzc6ZHOzXGXLhgevQwERHm4489
-2u+mTaZUKdOwoYmN9Wi/lvDmNXbuCXYXLlxYs2bNmjVrLG/ZHZsnli0z4eHOdF2unJk719Od
-Lltm8uf39NflLEuWmAIFPJ2hf/3VBAdbvHsu+xo3Nv36ebTH+HhTvLh59VWPdnrJDz+Y0NC8
-nsWQI6mpplEjc9ddzlxulplpHnzQlC5tjhzxUI/p6aZrV1O6tGMX9R44YMqUMR06eOhrSGam
-efJJExJiFi/2RHdXLWDsWBMUZJ5/3hPbKTIzzYQJJl8+8+ijznyVzjtvDnbuWWMXFhbWqlWr
-Vq1aOV2IlzpxQiVKONN11ar66SdPd7punRo1cmAmRVKHDgoJ0WefebTTGTNUvrzuvtujnV7y
-3HNasEAxMZ7r8fnnVbiwhg3zXI+Xq1FDY8ZoyBDFxnqox6efVkyM3n/fE0vr/iwgQHPnqnp1
-tWqluDjbuzNGAwZo3TqtWuXppSOXREVp40bt26f77tPFi/b2lZGhAQM0fbo+/1zdutnb118J
-CNCoUfriC02apE6ddOaMjX2dOaO//U2jRmnaNM2c6cxXaXdzT7DDtcXFObAkKEv16vrxR093
-un69mjf3dKdZQkPVubMWLfJcj6mpmjNHQ4bYfiXuX2nXTnXqeG6J/Q8/6K239OabTn5LePJJ
-Va2qAQM8sWM069vtggUqVcr2vv5KSIg++kgREbr/ftuvHB06VB9/rP/8R9Wq2dvRtd18s9as
-0b596txZZ8/a1cvFi+rWTUuW6Kuv1LatXb1kU/v22rxZP/+sO+7QoUO2dLFrl2rX1g8/aMcO
-/c//2NIFCHb+4uRJx4Kd5zfGnj2r3budXIrbo4dWrdLp0x7q7pNPdPasHn7YQ91d1Ysvav58
-DyX4J55Qu3bq0METff2VoCDNn6916zRnjr0dHT6sPn30r3+pTRt7O7quQoX05Zc6cUJ/+5vS
-0+3qZdQovfOOli1TnTp2dZF9FSvqm2/0yy9q2lRHjljf/pEjuuMO7dyp9evVsKH17edCtWra
-tk0lSqhBA61da3Hj06eraVM1bqwdO1SjhsWN4xKCnb9w5BC7LNWq6ehRG3/k/bMtWxQQoEaN
-PNfjFVq2VNGinjsUY9o0PfigA/uOL9emjVq31siRtne0eLE2b9bEibZ3dF2VKunllzVypP5v
-45b1kpN1772qU8dbDt8qWVL/+Y+2bbNrqPLVVzVhgj79VHfcYX3juVOhgrZtU/HiatBAGzda
-2fKaNapXTwULaudOh8cmr1C0qL78Ug8+qDZt9OSTSk62oM2kJP397xo5UpMn67335MsnTPgA
-gp2/OHnSsWBXtaqM8egyu3XrVL++h842u6qgIHXvrg8+8ERf332nzZsdPjU3yxtv6Kuv9OWX
-NnZx/ryefFIjRigqysZesm/oUNWpo379lJFhfeOZmerVSykpWrzYmaV1V3XrrVq+XIsX69ln
-LW55+nSNHq1Fi5wfm7xC0aJauVLduqlVK82da0GDxmjcOLVvr969tXq1Y3Mp1xAcrIkT9dFH
-+ugjVami99/PfY5PSdHEiYqK0u7d2rLFL46Rc57TuzeyJTInLO/dHbtiq1e38WbJ6ypd2syb
-57numjUzo0Z5rrur2rzZBAZ64qSGPn1Mixa295JNgwebqlVtuc0zy+jRpnRpB07tuYaYGFOs
-mBk61PqWn3zSFCli141SebRihcmXz0yZYlmDb75pgoLMu+9a1qAd3nrL5Mtnhg3L097k5GTT
-rZsJDzeLFllXmW3OnTOjR5uwMNOsmfnuu5y9m5Fh5s83N99sbrjBTJzoq7tf/wq7YvNq/Pjx
-t956a2JiYmJiYpEiRW65JqeL9VIOrrGTZ5fZXbig7dsd2zlxSaNGuvlmffihvb2cPKlFixzb
-HPpnY8boxAnNmGFL4zExev11jRvnXfM45cvr0081a5YmT7ay2XnzNHGiFi+260apPGrXTnPn
-atgwvfpqXudkL17Uww/rqac0b54eesii+uwxcKBWrdKCBerYUadO5aaFvXvVqJG+/VZbtujv
-f7e6PhsUKKAXX9SPP6pIEdWtq6FDdfJktl5ctky3365Bg/TQQzp4UMOGsfvVg5xOltmVnp7e
-rl07SUuXLvVw1y4YsUtLM4GBZt06xwp44glzzz0e6mvtWhMcbLzhPOmnnzb16tnbxZgxpmJF
-k5Fhby858sYbplgxEx9vfcv332+aNfOiO8sv9957JjjYfPaZNa1t2GBCQ820ada0Zp/Fi03B
-gqZjR3P6dC5bOHLE1K1rypY1O3ZYWpmdDh40NWuaAgXM4ME5OGZv0yZz//0mMNDce69JSLCz
-Ptt8+aW59VYjmSpVTL9+5u23zf79//3sqVNmzRozcaLp18/cdpvJl8889pg5fty5cm3GiJ0F
-goKChgwZ4nQVvurUKWVmOrbGTp4dsVu/XnXqqGBBD3V3DT16aOdORUfb1X5KimbM0OOPK9Cb
-/h4PGaKiRfXvf1vc7Jdf6osvNHmyY0e6XFuvXnruOfXsqV278trU4cPq2lX9+2vQICsqs1O3
-btq5U7GxqlNH27bl+PW1a//YPbBrl+rVs6E+e1SooN27NW+etm1T5crq0UO7d//lw5mZ+uwz
-3XGHmjWTpA0b9Nlnioz0WLFWat9eP/2k7ds1YIDOnNEzz6hKFd14o5o3V6lSKl5c7dpp9myd
-O6cePbRvn6ZPd+zwVD/n2QvS86ZOnToRERFB3rOK2HdkDZ47G+wOH9b587Zf4y1HT7C7wm23
-qUYNffCBnnvOlvY/+EDnz6tvX1saz7WQEL3+urp318CBlk0jnjyp/v01bJhuv92aBu3w7LM6
-eFCdOmnbNpUtm8tGsrbB1qypN9+0tDjbVKqkrVs1ZIiaN9e4cXriiey+OGGCnnpKQ4bo9dcV
-7EvfiCQpKEjduqlbN339tV5/XfXqqVUr9e6tsLA/HkhKUmamzpzRnDk6fFi9e2vuXFWu7GjR
-VggKUv36ql//j+UfMTHatEnR0XrkEd12m6pVY77VKwQYDxyv6eNmzpw5cODA5OTkCK9a2pMT
-q1bp3nt14YJjox3x8SpWTLt22X42VWqqihTRBx+oUyd7O8qmsWP13nt27QiuU0d33aUJE2xp
-PI9atlShQlq61IKmMjPVvr3i47Vpk0JCLGjQPqmpatdOv/+ujRtVqFCOXz92TN2769Qpbd2q
-IkVsqM9O8+dr0CC1b6/Zs69V/PnzWrlSb7+ttWs1a5Z69fJgibb5/nuNH6+vv/5vsMuSL5+6
-dtXjjzv5QzVskpqaGhoaumnTpiZNmjhdy5V87Qcl5ErWzgkH57CKFlWJEtq3z/Zgt3OnLl78
-Y9bDG/ToodGj9e23ql3b4pbXrdOePZ47Ki+nJkxQvXr6+mu1bJnXpsaP19at2rXL21OdpJAQ
-ffKJmjZV9+5atixnA1FffaWePRUVpa+/9r1UJ+nhh1W3rrp1U/Hiuv32PyYf77jjj0xz9qyW
-L9cnn/xxGk6HDtq8WbVqOVuyZWrV0oIFThcB/B9vWpsD2zh4iN0lnllmt26datb0oiUsFSqo
-QQNbrhd780116uTYTZrXdfvt6tNHI0bk9YC3bdv07LN66y1vObjuuooU0fLl+u473XGHtm/P
-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
-eg4AIA5iFnaHDx/esmXLgQMHzvjq+++//8477xR4pLxKpcKAAaFPn6jnAADiIDZh97//+7+3
-3357ZWXlyJEja2pqfv/3f/+9997rdM6UKVM+9alPRTFdvrglFgDovl5RD9Atra2tN998cyaT
-ue2224YMGbJmzZof/vCH//mf//nqq6/W1dVFPV0eCTsAoPvisWO3YMGCTCbz7LPP/vSnP125
-cuV777336KOPtra2Tps2rb29Perp8kjYAQDdF4+w+9nPfjZ27Nhp06blviwpKfmbv/mbe++9
-d926dd/5znciHS2/hB0A0H3xCLt33313yJAhHY+UlJR885vfrKysXLBgwdnupUiAVCpccUXU
-QwAAMRGPsBs0aNC6detOnjzZ8eBVV131xBNP7N27t7GxMakXZO3YAQDdF4+w+/znP9/a2nrv
-vffu2bOn4/HZs2dPmjTpX/7lX+bOnXvkyJGoxssfYQcAdF88wu6xxx4bMWLEP//zP9fW1g4a
-NOj//u//Tr303e9+d8yYMU1NTXV1ddu3b49wyHwQdgBA98Uj7CorK3/2s58tWrTopptuOnbs
-WMfNucsvv/zf//3fv/rVr/bt2zedTkc4ZD7s3y/sAIDuikfYhRAGDBgwf/78jRs3fvDBBzfc
-cEPHl/r27fuXf/mXra2tb7311po1a6Ka8KLLZMKxY8IOAOiueDyguDtKS0s/9alPJemTJ3If
-FCvsAIBuis2O3SVI2AEAPZKcHbs9e/ZMmjQphPD66693/7uOHz++cuXK48ePd3FOS0vLhQ53
-XlKpcNlloaIikr8cAIif5ITd8ePHN2/e3NPv2rt371//9V8fO3asi3MOHjwYQij8o/JSqVBT
-E0pKCvzXAgBxlZywu+qqq1555ZWeflddXd3WrVu7Puepp5566KGHSgpeWJ51AgD0SHLCrm/f
-vnfccUfUU1xMwg4A6JG43jxx9OjR1tbWTCYT9SB5JOwAgB6JU9itWbPm/vvvr6+vr66u7tev
-35AhQyorKwcMGHDdddfNmTNny5YtUQ94kQk7AKBHYnMp9sEHH2xubg4hVFVVDR06tKampqKi
-IpPJtLW17dy5s6mpqampaebMmcuXLy8tjVOtdiGVCh9/EjMAQFfiEXZLlixpbm5uaGhYvHjx
-rbfeWlZW1vHVbDa7cePGhQsXPvPMM8OHD58/f35Uc15cduwAgB6Jx+bWypUrBw8evG7durFj
-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
-eXn56f90IK+8HQWwf//+yZMnz549u2/fvk8//fTatWtPXZOy/oXUu3fvESNGrFy5sra2dtmy
-ZSdOnLD+ebV69ervfe97X//6189421bw338UysrKPvvZz7a3t2/btu1SWH9hVyC1tbU7duzI
-ZrOnjmSz2Z07d+b2MCgwb0deHT169K677nrppZfuuuuuX/ziFzNnzsxdBDzF+ufPz3/+8xkz
-ZqxatarjwT59+nzmM585duzY/v37g/XPp61bt4YQHn744VMfeDB37twQwuTJk0tKSnI3tVj/
-/Glvbz958mR7e3un45dddlkIIXcvXeLXX9gVyF133ZVKpTZt2nTqyMaNG1Op1OTJkyOc6pLl
-7cirJ5544rXXXnv00Ud/9KMfnfGuZOufPyUlJd/5zneee+65TsfffvvtgQMHfuITnwjWP5+u
-v/76L35cQ0NDCOHOO+/84he/WF9fH6x/Pm3fvr1Xr17Tpk3reLC9vX3Dhg39+vXLPQMl+esf
-5UP0LiWbN28OIdx55525f0ycOHFiwoQJIYT//u//jnq0hLvxxhtPf0CxtyN/Tp48OWjQoJqa
-msOHD5/tHOufPydPnqyrq+vTp8+mTZtOHcx9FOZ9992X+9L6F9LixYvDxx9QbP3zavjw4b16
-9Xr55ZdPHfn6178eQpgzZ07uy8Svv7ArnNy/IW655ZZHH3109OjRIYT7778/6qGS74xh1+7t
-yJvcMwWqqqo+eyZ79uzJnWb98+eFF14oLS297LLLfvM3f7OxsTH3QSCDBg3au3fvqXOsf8Gc
-Hnbt1j+fWlpa+vXrV1JSMmHChGnTpuU++WP06NGZTObUOclef2FXOB999NHXvva1a665pnfv
-3tdee+0TTzxx6pM0yZ+zhZ23I0/WrFnTxSWCt99+O3ea9c+rdevWTZo06fLLL+/fv/+NN944
-b968dDrd8QTrXzBnDDvrn1dvvvnmrFmzRo0aNWDAgFtuueUv/uIvjh071vGEZK9/Sftpv2MI
-AEAcuXkCACAhhB0AQEIIOwCAhBB2AAAJIewAABJC2AEAJISwAwBICGEHAJAQwg4AICGEHQBA
-Qgg7AICEEHYAAAkh7AAAEkLYAQAkhLADAEgIYQcAkBDCDgAgIYQdAEBCCDsAgIQQdgAACSHs
-AAASQtgBACSEsAMASAhhBwCQEMIOACAhhB0AQEIIOwCAhBB2AAAJIewAABJC2AEAJISwAwBI
-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"
+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
+qGhRffWVFizQmDG2j3Utyclq3Vo5cmjRIuXMae9YNWpo3Tpt3aqOHR37T1jSl1+qZUs9/LCW
+LFGBAjYO1LatNmzQDz/onnt05IiNA13fxYt65hk9+aReeUWffqpcuWwZJShI/fvrt9/Uq5ct
+9X1KkHH2z2LWSUpKatq0qaSffvop42+lpqZ++umnqdf9A9q6deuio6NPnz6dO3fu7HbpnD//
+VOnSiotT2bJeHXfTJjVooMREG69qvZbatdWxo4YN8+qgp0/rlls0e7buv9+r40pas0YtWigu
+zsrLYTPirrtUsaLef9+rg0ryeNSggW69VXPnenXcUaM0ZYp27PDe7XyXLVyoDh20dKlatvTe
+oF9+qc6dNWeOOnb03qDpzp1T69Y6eVJr1+rmm7006J49atpUNWroiy9snCC8lpkz1aePRo/W
+0KFeGvHoUXXooIMH9fXXql7dS4NedviwOndWbKzmztXdd3t79OxITU2NiIjYsGHDnXfe6XQv
+/+D0WrBlTvzvbfOZeuvPP/+sXLly2eu6+eabJZ3KwtlBvmTTJiMZ738oeOqUCQpyYAdWUpIJ
+CTHr13t7XGNMp07m4YcdGPehh8z99zsw7jffmNBQB+7devddkyePOXDA2+OmpppatUyHDt4e
+d98+U7CgGT7c2+MaY155xeTKZbZs8eqgKSkmKsqULevAP+LYWFOihGnb1qsXMMqVDNUAACAA
+SURBVBpjXn/dhIaa6dO9Oqgx5vx506WLyZ3bzJvn1XE3bDDFipn69c3+/V4d1xK+/I2de4Jd
+amrqypUrV65caXlld2yeWLTI5MrlzNClSpmZM7096KJF5qabvP3rcrovvzQ5c3o7Qx84YEJD
+Ld49l3ENG5onn/TqiAkJpnBh89prXh30su3bTUREds9iyJTUVNOggbnnHmcuN/N4TPfupnhx
+s2+fl0a8dMl07GiKF3fsot49e0yJEubee730a4jHY4YMMeHhZu5cbwx31QZeecWEhJgXX/TG
+dgqPx7z1lgkLM716OfOrdPb5crBzzzd2YWFhzZs3b968udON+KgjR1SkiDNDV66s337z9qBr
+16pBAwdWUiTde6/Cw/XVV14ddNo0lSmjFi28OuhlI0fq448VH++9EV98UfnyaeBA7414pWrV
+NGqU+vfX/v1eGnHoUMXHKzraG5/W/VNQkGbOVNWqat5cx47ZPpwx6t1ba9dq+XJvfzpyWfny
++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
+be0ll1xSW1u7du3aqMe5KKxevfr+++/v8iVvR+G0trbec889V1555YABA6688srZs2fv3r27
+0znWv3D27Nkze/bsj33sY4MGDRo/fvzSpUsPHz7c6RzrXxyLFy+eP3/+9u3bOx23/oVTVVWV
+OU2nvwjSvP55imXhwoUhhLFjx/7Zn/3ZVVddFUL48pe/HPVQKfcf//Ef/fv3v+SSS05/ydtR
+OC0tLWPGjAkhXHvttV/84hf/4A/+IJPJDBgwYOvWrafOsf6F89prrw0aNKi0tPTmm29euHDh
+9ddfH0IYN27ce++9d+oc618cP/zhDzv+qt2wYcMHj1v/wnn33XczmczIkSM/9WGPP/74qXPS
+vf7Crki2bt0aQvj0pz994sSJfD5/4sSJjr/tduzYEfVo6TRnzpyxY8d2/F/q6WHn7SioZcuW
+hRDuvvvuU0eeeuqpkpKSmpqaji+tf0H90R/9UQjhySefPHXknnvuCSH84z/+Y8eX1r84mpub
+y8vLBw8e3CnsrH9B/fKXvwwhLF++/EwnpH79hV2RzJ49O4Swffv2U0d+8YtfhBDmzZsX3VBp
+NmvWrBkzZsyYMWPIkCGnh523o6CuvvrqkpKSI0eOfPDgLbfcEkI4cOBA3voX2PDhw3/7t3/7
+g0c6/qqbP39+x5fWvwhyudzNN9/80Y9+9L777usUdta/oH70ox+FEH74wx+e6YTUr3/pBb+2
+S5c2b948atSoj3/846eOfOITnxgxYsR//dd/RThViv3rv/5rxx/Gjx9/+q8tezsKqqSkZMqU
+KUOGDPngwX79+oUQ2traKisrrX/h5HK5+++/v6qq6oMHDxw4EEIYNGhQx5fWvwgeeeSRF154
+4Wc/+9mmTZs6vWT9C+q1114LIYwePbquru61114bNWrUTTfddO211546IfXrL+yKIZ/P79u3
+73d+53c6Hf/IRz5y+m/UUmjejkJrbGzsdOTgwYPPPffc8OHDr7zySutfUCUlJXfffXfHn99+
+++3//d//fe2115YuXTp48OCO3yuy/kWwbdu2v/qrv1q6dGltbW2nsLP+hdYRdrfddtvBgwc7
+jpSUlHz5y19+5JFHSktLL4b1d1dsMRw8eLC9vb2ioqLT8YqKimPHjrW2tkYy1UXL21Fku3bt
+uummm44dO/bQQw+VlpZa/6JZsmTJ+PHjP/vZzzY3N//bv/1bdXV18L//wnvvvffmzJlz7bXX
+/s3f/M3pr1r/Qtu1a1cIYerUqb/85S+PHDny4osvfuITn/j2t7/993//9+HiWH9hVwy5XC6E
+kMlkunz1+PHjxR3nYuftKJp33nnngQcemDBhQnNz8+rVq+fPnx+sfxEtXLiwvr7+wQcfHDZs
+2IwZM3784x8H6194S5Ysef3113/wgx90/PpBJ9a/0L75zW8+99xz69evHz9+/JAhQ2prazdu
+3HjppZcuX748l8tdDOvvUmwxVFZW9unTp62trdPx1tbW0tLS4cOHRzLVRcvbURwbN25cuHDh
+b37zmxkzZqxaterUTcrWv2hqampqampCCF/4wheuvvrqu++++4477rD+BfXss8+uWbPmW9/6
+1rhx47o8wfoX2u///u93OjJs2LCpU6f+6Ec/2r1795VXXpn69bdjVwwlJSWVlZWn/wr/3r17
+L7vsspIS70JReTuK4IEHHvjMZz5TWlr6s5/97Cc/+cmpqgvWv8B27979ne98p6Gh4YMHR44c
+ed111+3du7etrc36F9S2bdtCCPfcc8+p5+Lee++9IYQZM2ZkMplf8DruAAAE+ElEQVTHH3/c
++kei49rriRMnLob1T8O/QyJ86lOfev311zuu/XdobGxsamqaNGlShFNdtLwdBfX973//G9/4
+xh133PE///M/XS6p9S+cAwcOLFy48LHHHut0/ODBg4MHDx46dGiw/oVUU1Oz8MM6HhA9ffr0
+hQsXXn311cH6F9Irr7xyzTXXdDxi5oO2b9/ev3//jmcRp3/9o3zWysXkhRdeCCHMnTu348tc
+Lvcnf/InIYQXX3wx2sFSr7q6+vTn2Hk7CieXy40dO3bw4MFtbW1nOsf6F057e3tlZeXQoUN3
+79596uC//Mu/hBDuuOOOji+tfzE99NBD4cPPsbP+hXPy5MmqqqqBAwf+93//96mDjz/+eAjh
+S1/6UseXqV9/YVc8M2bMCCHcfPPN9913X8d/GfzhH/5h1EOlX5dhl/d2FMyePXtCCMOGDft0
+Vw4ePNhxmvUvnPr6+kwmM3DgwD/+4z9etGjRlClTQgjDhw9vbm4+dY71L5rTwy5v/Qvp3//9
+3/v169e3b99Zs2bdddddtbW1IYRrrrnmg/+pme71F3bFc+zYsb/927+98cYby8rKbrrppgcf
+fPD48eNRD5V+Zwo7b0eBPPvss91cIjjVFta/oJ577rlPf/rTFRUVAwcOrKmp+cpXvtLa2vrB
+E6x/0XQZdta/oLZv3z5//vzq6urBgwdfd911999//wc/KDmf9vXP5PP5C3BBFwCAqLl5AgAg
+JYQdAEBKCDsAgJQQdgAAKSHsAABSQtgBAKSEsAMASAlhBwCQEsIOACAlhB0AQEoIOwCAlBB2
+AAApIewAAFJC2AEApISwAwBICWEHAJASwg4AICWEHQBASgg7AICUEHYAACkh7AAAUkLYAQCk
+hLADAEgJYQcAkBLCDgAgJYQdAEBKCDsAgJQQdgAAKSHsAABSQtgBAKSEsAMASAlhBwCQEsIO
+ACAlhB0AQEoIOwCAlBB2AAApIewAutPY2Ni/f/8pU6acOnLixInx48dXVFS8+eabEQ4GcDph
+B9CdcePG3XfffS+88MJ3v/vdjiMrV65saGj49re/fdlll0U7G0AnmXw+H/UMALHW3t7+yU9+
+ct++fTt37jx8+PD48eNvvfXWJ598Muq5ADoTdgBnt2XLlptuuunzn//8m2++uXXr1sbGxhEj
+RkQ9FEBnpVEPAJAA119//V/+5V9+61vfCiE88cQTqg6IJzt2AD3y61//+mMf+9igQYP27dtX
+VlYW9TgAXXDzBECPfPWrX+3Xr98777yzbNmyqGcB6JqwAzi7urq6J5988qGHHvrc5z63du3a
+zZs3Rz0RQBdcigU4iwMHDowbN+6KK67YsmXLgQMHrrnmmlGjRm3durVfv35RjwbwIXbsAM5i
+0aJF2Wz2n/7pn/r06TNy5MhvfvObr7zyykMPPRT1XACd2bED6E59ff3nP//5r371q6tWreo4
+ksvlbrzxxu3bt2/duvWaa66JdjyADxJ2AAAp4VIsAEBKCDsAgJQQdgAAKSHsAABSQtgBAKSE
+sAMASAlhBwCQEsIOACAlhB0AQEoIOwCAlBB2AAApIewAAFJC2AEApISwAwBICWEHAJASwg4A
+ICWEHQBASgg7AICUEHYAACkh7AAAUkLYAQCkhLADAEgJYQcAkBLCDgAgJYQdAEBKCDsAgJQQ
+dgAAKSHsAABSQtgBAKSEsAMASIn/C0J4xCTbi8ecAAAAAElFTkSuQmCC"
 >
 </div>
 
@@ -14156,12 +14116,7 @@ objetos e a "workspace"  que estão sendo utilizados durante a execução do pro
   <span class="nf">library</span><span class="p">()</span> <span class="c1"># Loads packages </span>
   <span class="nf">c</span><span class="p">()</span> <span class="nf">list</span><span class="p">()</span> <span class="c1"># Construir vetor; Listar vetor</span>
   <span class="nf">data.frame</span><span class="p">()</span> <span class="c1"># Construir data.frames </span>
-  <span class="n">x</span><span class="o">:</span><span class="n">y</span> <span class="c1"># Criar vetor entre valores x:y </span>
-  <span class="nf">range</span><span class="p">()</span> <span class="c1"># Retornar o min/max de valores do vetor </span>
-  <span class="nf">sum</span><span class="p">()</span> <span class="c1"># Calcular soma </span>
-  <span class="nf">mean</span><span class="p">()</span> <span class="c1"># Calcular a media </span>
-  <span class="nf">prod</span><span class="p">()</span> <span class="c1"># Calcular o produto </span>
-  <span class="nf">cor</span><span class="p">()</span> <span class="c1"># Calcular a correlacao entre duas variáveis </span>
+  <span class="n">x</span><span class="o">:</span><span class="n">y</span> <span class="nf">seq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="kc">...</span><span class="p">)</span> <span class="c1"># Criar vetor entre valores x e y </span>
   <span class="nf">getwd</span><span class="p">()</span> <span class="c1"># Mostrar o diretorio atual </span>
   <span class="nf">setwd</span><span class="p">()</span> <span class="c1"># Definir o diretorio de trabalho </span>
   <span class="nf">dir</span><span class="p">()</span> <span class="c1"># Listar os arquivos no diretorio de trabalho </span>
@@ -14170,11 +14125,9 @@ objetos e a "workspace"  que estão sendo utilizados durante a execução do pro
   <span class="nf">colnames</span><span class="p">()</span> <span class="c1"># Informar ou aplicar nomes em vetores</span>
   <span class="nf">head</span><span class="p">()</span> <span class="nf">tail</span><span class="p">()</span> <span class="c1"># Informar primeiro é ultimo dado em um data.frame </span>
   <span class="nf">summary</span><span class="p">()</span> <span class="nf">aggregate</span><span class="p">()</span> <span class="nf">table</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">addmargins</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="nf">prop.table</span><span class="p">(</span><span class="nf">table</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">)</span> <span class="c1"># Estimar tabelas estatisticas </span>
-  <span class="n">x</span><span class="o">&lt;</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">!=</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">%in%</span><span class="n">Y</span> <span class="c1"># Operadores relacionais </span>
-  <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">;</span> <span class="n">x^y</span> <span class="n">OR</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">%*%</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">%/%</span><span class="n">y</span> <span class="c1"># Operadores aritmeticos</span>
-  <span class="o">!</span> <span class="o">&amp;</span> <span class="o">|</span> <span class="nf">xor</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="o">||</span> <span class="c1"># Operadores logicos </span>
-  <span class="n">x[i</span><span class="nf">] </span><span class="p">(</span><span class="n">for</span> <span class="m">1</span><span class="o">-</span><span class="n">dimensional</span> <span class="n">vectors</span><span class="p">)</span> <span class="n">x[i</span><span class="p">,</span> <span class="n">j</span><span class="nf">] </span><span class="p">(</span><span class="n">x</span><span class="o">$</span><span class="nf">j </span><span class="p">(</span><span class="n">only</span> <span class="n">for</span> <span class="n">data.frames</span><span class="p">))</span> <span class="c1"># Extrair ou aplicar elemento em arrays</span>
-  <span class="nf">plot</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">)</span> <span class="nf">hist</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="nf">boxplot</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># Gerar graficos</span>
+  <span class="n">x[i]</span><span class="p">,</span> <span class="n">x[i</span><span class="p">,</span> <span class="n">j]</span><span class="p">,</span> <span class="n">x</span><span class="o">$</span><span class="n">j</span> <span class="c1"># Extrair ou aplicar a elementos de matrizes e data.frames</span>
+  <span class="nf">plot</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">)</span> <span class="nf">hist</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="nf">boxplot</span><span class="p">(</span><span class="n">y</span> <span class="o">~</span> <span class="n">x</span><span class="p">)</span> <span class="c1"># Gerar graficos </span>
+  <span class="nf">na.omit</span><span class="p">()</span> <span class="c1"># omitit missins</span>
 </pre></div>
 
     </div>
@@ -14192,16 +14145,16 @@ objetos e a "workspace"  que estão sendo utilizados durante a execução do pro
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="c1">#setwd(&quot;~/Rcurso&quot;)</span>
-<span class="nf">getwd</span><span class="p">()</span>
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#setwd(&quot;C:/Rcurso 2020&quot;) ## definir pasta de trabalho</span>
+<span class="nf">getwd</span><span class="p">()</span>   <span class="c1"># mostrar pasta de trabalho</span>
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="m">101</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="m">1</span> <span class="o">-</span> <span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>       <span class="c1"># media de x</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>     <span class="c1"># media de y   **vai dar NaN</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>    <span class="c1"># media de y, removendo NaN</span>
 </pre></div>
 
     </div>
@@ -14219,7 +14172,7 @@ objetos e a "workspace"  que estão sendo utilizados durante a execução do pro
 
 
 <div class="output_html rendered_html output_subarea ">
-'/mnt/Disco1/Jupyter/Rcurso/Rcurso2019'
+'/mnt/Disco1/Jupyter/R/Rcurso2019'
 </div>
 
 </div>
@@ -14435,6 +14388,124 @@ NaN
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">4</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="m">3</span>
+<span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">;</span> <span class="n">x^y</span><span class="p">;</span> <span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">%/%</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span> <span class="o">%%</span> <span class="n">y</span> <span class="c1"># Operadores aritmeticos</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+7
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+1
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+12
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+1.33333333333333
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+64
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+64
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+1
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+1
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14456,11 +14527,233 @@ NaN
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="m">1</span><span class="o">!=</span><span class="m">2</span><span class="p">;</span> <span class="m">1</span><span class="o">!=</span><span class="m">1</span><span class="p">;</span> <span class="m">1</span><span class="o">&amp;</span><span class="m">2</span><span class="o">&lt;=</span><span class="m">1</span><span class="p">;</span> <span class="m">1</span><span class="o">&amp;</span><span class="m">2</span><span class="o">&gt;</span><span class="m">0</span><span class="p">;</span> <span class="m">1</span><span class="o">|</span><span class="m">2</span><span class="o">!=</span><span class="m">1</span><span class="p">;</span> <span class="m">1</span><span class="o">|</span><span class="m">2</span><span class="o">==</span><span class="m">1</span>    <span class="c1">#TRUE OR FALSE?</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;verificar variável&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="m">-1</span>
+<span class="n">x</span><span class="o">&lt;</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">&gt;</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">&gt;=</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">!=</span><span class="n">y</span><span class="p">;</span>  <span class="c1"># Operadores relacionais </span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;verificar valor em vetor&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">Y</span> <span class="o">&lt;-</span> <span class="m">-1</span><span class="o">:</span><span class="m">1</span>
+<span class="n">x</span><span class="o">%in%</span><span class="n">Y</span> 
+<span class="n">x</span><span class="o">&gt;</span><span class="n">Y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>verificar valor</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>verificar valor em vetor</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>TRUE</li>
+	<li>TRUE</li>
+	<li>FALSE</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>
-<span class="p">(</span><span class="m">2</span><span class="o">&lt;=</span><span class="n">x</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="m">4</span><span class="o">&gt;=</span><span class="n">x</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">0</span><span class="p">);</span>    <span class="c1"># cria objeto</span>
+<span class="p">(</span><span class="m">2</span><span class="o">&lt;=</span><span class="n">x</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="m">4</span><span class="o">&gt;=</span><span class="n">x</span><span class="p">)</span>   <span class="c1">#3 é maior ou igual a 2?  e  4 é maior ou igual a 0? </span>
 <span class="p">(</span><span class="n">x</span><span class="o">&lt;=</span><span class="m">1</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="m">4</span><span class="p">)</span>
 </pre></div>
 
@@ -14510,10 +14803,22 @@ NaN
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">!=</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="o">!=</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="o">&amp;</span><span class="m">2</span><span class="o">&lt;=</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="o">&amp;</span><span class="m">2</span><span class="o">&gt;</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="o">|</span><span class="m">2</span><span class="o">!=</span><span class="m">1</span> <span class="p">,</span><span class="m">1</span><span class="o">|</span><span class="m">2</span><span class="o">==</span><span class="m">1</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+<span class="n">nx</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="kc">FALSE</span><span class="p">,</span><span class="kc">TRUE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+<span class="c1"># Operadores logicos </span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;___ou___&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">&amp;</span><span class="n">y</span><span class="p">;</span> 
+<span class="n">x</span><span class="o">&amp;&amp;</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">&amp;&amp;</span><span class="n">z</span><span class="p">;</span>  <span class="n">y</span><span class="o">&amp;&amp;</span><span class="n">z</span><span class="p">;</span> <span class="n">x</span><span class="o">&amp;&amp;</span><span class="n">nx</span><span class="p">;</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;___e___&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="o">|</span><span class="n">y</span><span class="p">;</span> 
+<span class="n">x</span><span class="o">||</span><span class="n">y</span><span class="p">;</span> <span class="n">x</span><span class="o">||</span><span class="n">z</span><span class="p">;</span>  <span class="n">y</span><span class="o">||</span><span class="n">z</span><span class="p">;</span> <span class="n">z</span><span class="o">||</span><span class="kc">FALSE</span><span class="p">;</span>
 </pre></div>
 
     </div>
@@ -14529,17 +14834,149 @@ NaN
     <div class="prompt"></div>
 
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>___ou___</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 
 <div class="output_html rendered_html output_subarea ">
 <ol class=list-inline>
 	<li>TRUE</li>
+	<li>TRUE</li>
 	<li>FALSE</li>
 	<li>FALSE</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>___e___</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>TRUE</li>
 	<li>TRUE</li>
 	<li>TRUE</li>
 	<li>TRUE</li>
 </ol>
 
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+FALSE
 </div>
 
 </div>
@@ -14581,7 +15018,7 @@ NaN
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3-Opera&#231;&#245;es-b&#225;sicas-no-R">3 Opera&#231;&#245;es b&#225;sicas no R<a class="anchor-link" href="#3-Opera&#231;&#245;es-b&#225;sicas-no-R">&#182;</a></h1><p>O R é orientado a objetos. Os tipos básicos de objetos são: vetores, matrizes, dataframes, listas e funcões. 
+<h1 id="3-Objetos-b&#225;sicos">3 Objetos b&#225;sicos<a class="anchor-link" href="#3-Objetos-b&#225;sicos">&#182;</a></h1><p>O R é orientado a objetos. Os tipos básicos de objetos são: vetores, matrizes, dataframes, listas e funcões. 
 Nessa seção aprenderemos um pouco mais sobre essas estruturas de dados e alguns comandos básicos para manipulá-las. É importante salientar que muitas funções são orientadas especificamente a natureza do objeto, assim uma mesma função pode retornar saídas diferentes dependendo da natureza do objeto, mas é mais comum existir funções que são exclusivas a uma natureza específica, levando ao erro caso da função caso a definição do objeto seja diferente da demandada pela função.</p>
 <h2 id="3.1-Vetores">3.1 Vetores<a class="anchor-link" href="#3.1-Vetores">&#182;</a></h2><p>Vetores são uma sequências de valores numéricos ou de caracteres(letras, palavras). Sua principal utilidade é poder
 armazenar diversos dados em forma de lista e aplicar funções e operações sobre todos os dados pertencentes a 
@@ -14593,14 +15030,11 @@ determinado vetor com apenas poucos comandos.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">vec</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">13.10</span><span class="p">,</span><span class="m">91</span><span class="p">,</span><span class="m">15.8</span><span class="p">)</span> <span class="c1">#forma mais simples de declarar um vetor</span>
-  <span class="n">vec2</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span> <span class="c1"># cria um vetor de 1 ate 6</span>
-  <span class="n">vec3</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">((</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">),(</span><span class="m">3</span><span class="o">:</span><span class="m">1</span><span class="p">))</span>
-  <span class="n">vec4</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">vec3[1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">vec3[5</span><span class="o">:</span><span class="m">6</span><span class="n">]</span> <span class="p">,</span> <span class="m">0</span><span class="p">)</span>
-   <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">vec2</span><span class="p">,</span><span class="n">vec3</span><span class="p">,</span><span class="n">vec4</span><span class="p">),</span><span class="m">6</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">0</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">vec1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">13.10</span><span class="p">,</span><span class="m">91</span><span class="p">,</span><span class="m">15.8</span><span class="p">)</span> <span class="c1">#forma mais simples de declarar um vetor</span>
+<span class="n">vec1</span>
 </pre></div>
 
     </div>
@@ -14618,16 +15052,14 @@ determinado vetor com apenas poucos comandos.</p>
 
 
 <div class="output_html rendered_html output_subarea ">
-<table>
-<tbody>
-	<tr><td> 1.0</td><td>1   </td><td>1   </td><td>0   </td></tr>
-	<tr><td> 4.0</td><td>2   </td><td>2   </td><td>1   </td></tr>
-	<tr><td>10.0</td><td>3   </td><td>3   </td><td>2   </td></tr>
-	<tr><td>13.1</td><td>4   </td><td>3   </td><td>2   </td></tr>
-	<tr><td>91.0</td><td>5   </td><td>2   </td><td>1   </td></tr>
-	<tr><td>15.8</td><td>6   </td><td>1   </td><td>0   </td></tr>
-</tbody>
-</table>
+<ol class=list-inline>
+	<li>1</li>
+	<li>4</li>
+	<li>10</li>
+	<li>13.1</li>
+	<li>91</li>
+	<li>15.8</li>
+</ol>
 
 </div>
 
@@ -14639,16 +15071,11 @@ determinado vetor com apenas poucos comandos.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span>
-  <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">8</span><span class="p">)</span> <span class="p">,</span> <span class="c1"># vetor de 1 ate 8</span>
-  <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span> <span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">2</span><span class="p">),</span>  <span class="c1">#vetor de 1 ate 15 com passo 2</span>
-  <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span> <span class="p">,</span><span class="n">to</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>  <span class="p">,</span> <span class="c1">#vetor de 1 ate 15 com 2 elementos</span>
-  <span class="nf">rep</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">),</span>  <span class="c1"># repete o elemento 10, dez vezes</span>
-  <span class="nf">rep</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>  <span class="c1">#repete a sequência de 3 a 6, três vezes</span>
-      <span class="p">),</span><span class="m">4</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">vec2</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">6</span> <span class="c1"># cria um vetor com uma sequencia de 1 ate 6</span>
+<span class="n">vec2</span>
 </pre></div>
 
     </div>
@@ -14666,14 +15093,251 @@ determinado vetor com apenas poucos comandos.</p>
 
 
 <div class="output_html rendered_html output_subarea ">
-<table>
-<tbody>
-	<tr><td>1 </td><td>5 </td><td>1 </td><td> 9</td><td> 1</td><td>10</td><td>10</td><td>3 </td><td>3 </td><td>3 </td></tr>
-	<tr><td>2 </td><td>6 </td><td>3 </td><td>11</td><td>15</td><td>10</td><td>10</td><td>4 </td><td>4 </td><td>4 </td></tr>
-	<tr><td>3 </td><td>7 </td><td>5 </td><td>13</td><td>10</td><td>10</td><td>10</td><td>5 </td><td>5 </td><td>5 </td></tr>
-	<tr><td>4 </td><td>8 </td><td>7 </td><td>15</td><td>10</td><td>10</td><td>10</td><td>6 </td><td>6 </td><td>6 </td></tr>
-</tbody>
-</table>
+<ol class=list-inline>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">vec3</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">((</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">),(</span><span class="m">3</span><span class="o">:</span><span class="m">1</span><span class="p">))</span>
+<span class="n">vec3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>3</li>
+	<li>2</li>
+	<li>1</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">vec4</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="n">vec3[1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span><span class="p">,</span> <span class="n">vec3[5</span><span class="o">:</span><span class="m">6</span><span class="n">]</span> <span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+<span class="n">vec4</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>0</li>
+	<li>1</li>
+	<li>2</li>
+	<li>2</li>
+	<li>1</li>
+	<li>0</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">8</span><span class="p">)</span>  <span class="c1"># vetor de 1 ate 8</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+	<li>6</li>
+	<li>7</li>
+	<li>8</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span> <span class="p">,</span><span class="n">to</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">length.out</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>   <span class="c1">#vetor de 1 ate 15 com 2 elementos </span>
+ <span class="nf">seq</span><span class="p">(</span><span class="n">from</span> <span class="o">=</span> <span class="m">1</span> <span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>  <span class="c1">#vetor de 1 ate 15 com passo 2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>8</li>
+	<li>15</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>1</li>
+	<li>4</li>
+	<li>7</li>
+	<li>10</li>
+	<li>13</li>
+</ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">rep</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>  <span class="c1"># repete o elemento 10, dez vezes</span>
+  <span class="nf">rep</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>  <span class="c1">#repete a sequência de 3 a 6, três vezes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>10</li>
+	<li>10</li>
+	<li>10</li>
+</ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<ol class=list-inline>
+	<li>3</li>
+	<li>4</li>
+	<li>3</li>
+	<li>4</li>
+</ol>
 
 </div>
 
@@ -14704,11 +15368,11 @@ matrizes.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># x &lt;- array (dados, dim = vetor_dimensao) #sintaxe</span>
-<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">array</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="o">:</span><span class="m">20</span><span class="p">),</span> <span class="n">dim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">array</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="o">:</span><span class="m">20</span><span class="p">),</span> <span class="n">dim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
  <span class="n">x</span>
 </pre></div>
 
@@ -14728,9 +15392,10 @@ matrizes.</p>
 
 <div class="output_html rendered_html output_subarea ">
 <table>
+<caption>A matrix: 2 × 2 of type int</caption>
 <tbody>
-	<tr><td>10</td><td>12</td><td>14</td><td>16</td><td>18</td></tr>
-	<tr><td>11</td><td>13</td><td>15</td><td>17</td><td>19</td></tr>
+	<tr><td>10</td><td>12</td></tr>
+	<tr><td>11</td><td>13</td></tr>
 </tbody>
 </table>
 
@@ -14779,10 +15444,10 @@ matrizes.</p>
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">M</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">21</span><span class="o">:</span><span class="m">28</span><span class="p">),</span> <span class="m">2</span><span class="p">,</span><span class="m">4</span> <span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">M</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">21</span><span class="o">:</span><span class="m">28</span><span class="p">),</span> <span class="m">2</span><span class="p">,</span><span class="m">4</span> <span class="p">)</span>   <span class="c1"># matriz com uma sequencia de 21 a 28, de 2 linhas e 4 colunas</span>
  <span class="n">M</span> 
- <span class="n">M[1</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="c1"># retorna o elemento que se encontra na linha 1 e coluna 3</span>
- <span class="n">M[2</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span> <span class="c1"># retorna todos os elementos da linha 2</span>
+ <span class="n">M[1</span><span class="p">,</span><span class="m">3</span><span class="n">]</span>                        <span class="c1"># retorna o elemento que se encontra na linha 1 e coluna 3</span>
+ <span class="n">M[2</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="n">]</span>                      <span class="c1"># retorna todos os elementos da linha 2</span>
 </pre></div>
 
     </div>
@@ -15386,11 +16051,11 @@ e idade do aluno, respectivamente. Desse modo, essa estrutura proporciona mais l
 <div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">ipca</span> <span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="m">6.62</span><span class="p">,</span><span class="m">4.61</span><span class="p">,</span><span class="m">6.03</span><span class="p">,</span><span class="m">5.28</span><span class="p">,</span> <span class="m">5.70</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">ipca</span> <span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="m">6.62</span><span class="p">,</span><span class="m">4.61</span><span class="p">,</span><span class="m">6.03</span><span class="p">,</span><span class="m">5.28</span><span class="p">,</span> <span class="m">5.70</span><span class="p">)</span>           <span class="c1"># cria objeto</span>
 <span class="n">selic</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1.46</span><span class="p">,</span><span class="m">1.15</span><span class="p">,</span><span class="m">1.16</span><span class="p">,</span><span class="m">1.21</span><span class="p">,</span><span class="m">1.24</span><span class="p">)</span>
 <span class="n">nivel_emprego</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">159.1473</span><span class="p">,</span><span class="m">158.0703</span><span class="p">,</span><span class="m">156.1412</span><span class="p">,</span><span class="m">152.7011</span><span class="p">,</span><span class="m">150.9488</span><span class="p">)</span>
-<span class="n">df2</span> <span class="o">&lt;-</span><span class="nf">data.frame </span><span class="p">(</span><span class="n">ipca</span> <span class="p">,</span><span class="n">selic</span> <span class="p">,</span> <span class="n">nivel_emprego</span> <span class="p">)</span>
-<span class="n">df2[1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="n">]</span>
+<span class="n">df2</span> <span class="o">&lt;-</span><span class="nf">data.frame </span><span class="p">(</span><span class="n">ipca</span> <span class="p">,</span><span class="n">selic</span> <span class="p">,</span> <span class="n">nivel_emprego</span> <span class="p">)</span>   <span class="c1">#criando data.frame com os objetos dados</span>
+<span class="n">df2[1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="n">]</span>      <span class="c1"># mostra data.frame com as linhas de 1 a 3</span>
 </pre></div>
 
     </div>
@@ -16703,7 +17368,7 @@ Traceback:
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">v</span> <span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span> <span class="p">,</span><span class="m">2</span> <span class="p">,</span><span class="m">1</span> <span class="p">,</span><span class="m">2</span> <span class="p">,</span><span class="m">2</span> <span class="p">,</span><span class="m">3</span> <span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">v</span> <span class="o">&lt;-</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span> <span class="p">,</span><span class="m">2</span> <span class="p">,</span><span class="m">1</span> <span class="p">,</span><span class="m">2</span> <span class="p">,</span><span class="m">2</span> <span class="p">,</span><span class="m">3</span> <span class="p">,</span><span class="m">2</span><span class="p">)</span>     <span class="c1"># cria objeto</span>
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c </span><span class="p">(</span><span class="m">8</span> <span class="p">,</span><span class="m">16</span> <span class="p">,</span><span class="m">15</span> <span class="p">,</span><span class="m">2</span> <span class="p">,</span><span class="m">19</span> <span class="p">,</span><span class="m">28</span> <span class="p">,</span><span class="m">89</span> <span class="p">,</span><span class="m">50</span> <span class="p">,</span><span class="m">91</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">c </span><span class="p">(</span><span class="m">2</span> <span class="p">,</span><span class="m">8</span> <span class="p">,</span><span class="m">19</span> <span class="p">,</span><span class="m">15</span> <span class="p">,</span><span class="m">15</span> <span class="p">,</span><span class="m">15</span> <span class="p">,</span><span class="m">89</span> <span class="p">,</span><span class="m">91</span><span class="p">)</span>
 <span class="n">z</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">5</span> <span class="p">,</span><span class="m">3</span> <span class="p">,</span><span class="m">15</span> <span class="p">,</span><span class="m">0</span> <span class="p">,</span><span class="m">3</span> <span class="p">,</span><span class="m">8</span> <span class="p">,</span><span class="m">1</span> <span class="p">,</span><span class="m">19</span> <span class="p">,</span><span class="m">50</span><span class="p">)</span>
@@ -16915,8 +17580,8 @@ Traceback:
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">var</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="nf">sd</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">var</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>    <span class="c1"># variancia</span>
+<span class="nf">sd</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>     <span class="c1"># desvio-padrão</span>
 </pre></div>
 
     </div>
@@ -17711,7 +18376,7 @@ seu uso permita extrair informações de grandes dados computacionais.</p>
 <div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span><span class="n">corPNAD</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">pnad</span><span class="p">),</span><span class="m">4</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">corPNAD</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="nf">cor</span><span class="p">(</span><span class="n">pnad</span><span class="p">),</span><span class="m">4</span><span class="p">)</span>    <span class="c1"># 4 casas decimais</span>
 <span class="n">corPNAD</span>
 </pre></div>
 
@@ -27262,7 +27927,7 @@ Metodo para analises caso agrupamentos hierarquicos: "complete" (default), "ward
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a href="#Sumário">&laquo;</a></p>
-<h2 id="5.4-Fun&#231;&#245;es">5.4 Fun&#231;&#245;es<a class="anchor-link" href="#5.4-Fun&#231;&#245;es">&#182;</a></h2><p>Não é raro a necessidade de escrever funções simples a fim de simplificar rotinas de trabalho.
+<h2 id="5.4-Fun&#231;&#245;es-e-estruturas-de-controle-e-repeti&#231;&#227;o">5.4 Fun&#231;&#245;es e estruturas de controle e repeti&#231;&#227;o<a class="anchor-link" href="#5.4-Fun&#231;&#245;es-e-estruturas-de-controle-e-repeti&#231;&#227;o">&#182;</a></h2><h3 id="5.4.1-Fun&#231;&#245;es">5.4.1 Fun&#231;&#245;es<a class="anchor-link" href="#5.4.1-Fun&#231;&#245;es">&#182;</a></h3><p>Não é raro a necessidade de escrever funções simples a fim de simplificar rotinas de trabalho.
 Apesar do R ter um número elevado de pacotes e funções, instalar pacotes para rotinas relativamente simples pode ser desnecessário. 
 Podendo o próprio usuário construir a sua função.
 A estrutura básica:</p>
@@ -27509,27 +28174,148 @@ A estrutura básica:</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Estruturas de controle</strong></p>
-<p>Em programação são estrturas que permitem controlar o fluxo de um programa, as estruturas básicas são:</p>
+<h3 id="5.4.2-Estruturas-de-controle">5.4.2 Estruturas de controle<a class="anchor-link" href="#5.4.2-Estruturas-de-controle">&#182;</a></h3><p>Em programação, controles são estruturas que permitem controlar o fluxo de um programa, as estruturas básicas são:</p>
 <ul>
 <li><p>if e else: para testar condições lógicas;</p>
 
-<pre><code> if(x &gt; 3) {y &lt;- 10 } else { y &lt;- 0 }
- y &lt;- if(x &gt; 3) { 10 } else { 0 }</code></pre>
+<pre><code>if(x &gt; 3) {y &lt;- 10 } else { y &lt;- 0 }
+y &lt;- if(x &gt; 3) { 10 } else { 0 }</code></pre>
 </li>
-<li><p>for: quando o loop tem um número fixo de repetições:</p>
+</ul>
+<ul>
+<li><p>ifelse() : para testar condições lógicas;</p>
 
+<pre><code>ifelse(x &gt; 3, TRUE, FALSE)
+ifelse(x &gt; 3, X&lt;- 3, x &lt;- 0)</code></pre>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span><span class="m">5</span>
+  <span class="nf">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">y</span> <span class="o">&lt;-</span> <span class="m">10</span>
+      <span class="nf">cat</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="p">}</span> <span class="n">else</span> <span class="p">{</span> 
+      <span class="n">y</span> <span class="o">&lt;-</span> <span class="m">0</span>
+      <span class="nf">cat</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+  <span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">y</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">0</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>10</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">y1</span> <span class="o">&lt;-</span> <span class="nf">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">)</span> <span class="p">{</span> <span class="m">10</span> <span class="p">}</span> <span class="n">else</span> <span class="p">{</span> <span class="m">0</span> <span class="p">}</span>
+ <span class="n">y2</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">,</span>  <span class="m">10</span> <span class="p">,</span> <span class="m">0</span> <span class="p">)</span>
+ <span class="n">y1</span><span class="o">==</span><span class="n">y2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+TRUE
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.4.3-Estruturas-de-repeti&#231;&#227;o">5.4.3 Estruturas de repeti&#231;&#227;o<a class="anchor-link" href="#5.4.3-Estruturas-de-repeti&#231;&#227;o">&#182;</a></h3><p>Por vezes serão necessários repetir comandos, linhas de comandas ou mesmo funções.</p>
+<p>Na maioria das vezes será muito melhor que esta repetição seja feita por estruturas de repetição ao invez de escrever o mesmo comando repetidamente.</p>
+<ul>
+<li>for: quando o loop tem um número fixo de repetições:
 <pre><code>  for(i in 1:10) { print(i)}`
   x &lt;- c("a", "b", "c", "d");  for( y in x) {print(y)}</code></pre>
 </li>
-<li><p>while: quando não se sabe a dimenssão do loop:</p>
-
+</ul>
+<ul>
+<li>while: quando não se sabe a dimenssão do loop:
 <pre><code>  x &lt;- 1000; 
   while(x &lt; 10000) {
   print(x)
   x &lt;- x + 1000
   }</code></pre>
 </li>
+</ul>
+<ul>
 <li>repeat: similar a while, repete de forma infinita até que a função break seja executada;</li>
 <li><p>break: permite sair de qualquer tipo de loop;</p>
 
@@ -27545,6 +28331,8 @@ A estrutura básica:</p>
       }
   }</code></pre>
 </li>
+</ul>
+<ul>
 <li>next: ignora a interação de um loop;
 <pre><code>  for(i in 1:100) {
         if(i &gt; 2 &amp; i&lt; 10 ) {
@@ -27559,6 +28347,552 @@ A estrutura básica:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">boletim</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(){</span>
+  <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;precione enter uma vez para o próximo nome ou duas vezes para finalizar&quot;</span><span class="p">)</span>
+     <span class="n">nomes</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">(</span><span class="n">what</span> <span class="o">=</span> <span class="s">&quot;character&quot;</span><span class="p">)</span>
+  <span class="nf">cat</span><span class="p">(</span><span class="s">&quot;precione enter uma vez para a próxima nota ou duas vezes para finalizar&quot;</span><span class="p">)</span>
+      <span class="n">notas</span> <span class="o">&lt;-</span> <span class="nf">scan</span><span class="p">()</span>
+      
+  <span class="n">a</span><span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+  
+  <span class="n">notas</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">nomes</span><span class="p">,</span> <span class="n">notas</span><span class="p">)</span>
+  <span class="nf">for  </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">a</span><span class="p">))</span> <span class="p">{</span>
+    <span class="n">notas[i</span><span class="p">,</span><span class="m">3</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">notas[i</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="o">&gt;=</span> <span class="m">70</span><span class="p">,</span> <span class="s">&quot;Aprovado&quot;</span><span class="p">,</span> <span class="s">&quot;Reprovado&quot;</span><span class="p">)</span>
+    <span class="n">notas[i</span><span class="p">,</span><span class="m">4</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">notas[i</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="o">&gt;=</span> <span class="m">70</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">,</span><span class="s">&quot;R&quot;</span><span class="p">)</span>
+    <span class="n">notas[i</span><span class="p">,</span><span class="m">4</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">notas[i</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="o">&gt;=</span> <span class="m">80</span><span class="p">,</span> <span class="s">&quot;B&quot;</span><span class="p">,</span> <span class="n">notas[i</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">)</span>
+    <span class="n">notas[i</span><span class="p">,</span><span class="m">4</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">notas[i</span><span class="p">,</span><span class="m">2</span><span class="n">]</span><span class="o">&gt;=</span> <span class="m">90</span><span class="p">,</span> <span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="n">notas[i</span><span class="p">,</span><span class="m">4</span><span class="n">]</span><span class="p">)</span>
+  <span class="p">}</span>
+  <span class="nf">names</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Aluno&quot;</span><span class="p">,</span> <span class="s">&quot;Nota&quot;</span><span class="p">,</span> <span class="s">&quot;Status&quot;</span><span class="p">,</span> <span class="s">&quot;Conceito&quot;</span><span class="p">)</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">notas</span><span class="p">)</span>
+        
+<span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Exerc&#237;cio.">Exerc&#237;cio.<a class="anchor-link" href="#Exerc&#237;cio.">&#182;</a></h4><p>Reescreva a função boletim() trocando a estrtura de repetição "for" por "while" e depois por "repeat".</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.4.4-Transformando,-aplicando,-replicando-tabelas-e-matrizes">5.4.4 Transformando, aplicando, replicando tabelas e matrizes<a class="anchor-link" href="#5.4.4-Transformando,-aplicando,-replicando-tabelas-e-matrizes">&#182;</a></h3>
+<pre><code>A família de funções "apply" tem como objetivo replicar, de maneira eficiente, ações em diferentes objetos. É quase sempre uma alternativa mais rápida e eficiente ao clássico loop quando estamos trabalhando com matrizes, tabelas e listas.
+
+
+</code></pre>
+<ul>
+<li><p>Funções da família apply:</p>
+<ul>
+<li>apply()</li>
+<li>mapply()</li>
+<li><p>tapply()</p>
+</li>
+<li><p>lapply()</p>
+</li>
+<li>sapply() </li>
+<li>vapply()</li>
+<li>rapply()</li>
+</ul>
+</li>
+<li><p>funções relacionadas</p>
+<ul>
+<li>rep()</li>
+<li><p>aggregate()</p>
+</li>
+<li><p>Sweep()</p>
+</li>
+</ul>
+</li>
+<li><p><strong>apply</strong></p>
+</li>
+</ul>
+<p>Replica determinada função por linha ou coluna de uma array.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">A1</span> <span class="o">&lt;-</span> <span class="nf">matrix</span><span class="p">(</span><span class="nf">round</span><span class="p">(</span><span class="nf">runif</span><span class="p">(</span><span class="m">25</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="p">,</span><span class="m">0</span><span class="p">),</span> <span class="n">nrow</span><span class="o">=</span><span class="m">5</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span><span class="m">5</span> <span class="p">)</span>
+<span class="n">A1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<tbody>
+	<tr><td> 4</td><td>0</td><td>7</td><td>10</td><td>1</td></tr>
+	<tr><td>10</td><td>8</td><td>1</td><td> 8</td><td>1</td></tr>
+	<tr><td> 8</td><td>4</td><td>9</td><td> 5</td><td>9</td></tr>
+	<tr><td> 7</td><td>7</td><td>7</td><td> 7</td><td>4</td></tr>
+	<tr><td> 3</td><td>5</td><td>7</td><td> 3</td><td>1</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">apply</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="n">A1</span><span class="p">,</span><span class="n">MARGIN</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">FUN</span> <span class="o">=</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">A1[2</span><span class="p">,</span><span class="n">]</span><span class="p">)</span>
+
+<span class="nf">apply</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">A1[</span><span class="p">,</span><span class="m">3</span><span class="n">]</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>4.4</li><li>5.6</li><li>7</li><li>6.4</li><li>3.8</li></ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+5.6
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>6.4</li><li>4.8</li><li>6.2</li><li>6.6</li><li>3.2</li></ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+6.2
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>rep</strong></li>
+</ul>
+<p>Replica um objeto (básico) determinadas vezes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">rep</span><span class="p">(</span><span class="s">&quot;casa&quot;</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<span class="nf">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li></ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'casa'</li><li>'casa'</li><li>'casa'</li><li>'casa'</li><li>'casa'</li></ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="m">6</span><span class="o">*</span><span class="m">4</span><span class="o">*</span><span class="m">2+5</span><span class="o">*</span><span class="m">4+10</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+78
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>mapply</strong></li>
+</ul>
+<p>Aplica derterminada a função a todos os elementes de um ou mais objetos do tipo matriz ou tabela.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">mapply</span><span class="p">(</span><span class="n">sqrt</span><span class="p">,</span><span class="n">A1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>2</li><li>3.16227766016838</li><li>2.82842712474619</li><li>2.64575131106459</li><li>1.73205080756888</li><li>0</li><li>2.82842712474619</li><li>2</li><li>2.64575131106459</li><li>2.23606797749979</li><li>2.64575131106459</li><li>1</li><li>3</li><li>2.64575131106459</li><li>2.64575131106459</li><li>3.16227766016838</li><li>2.82842712474619</li><li>2.23606797749979</li><li>2.64575131106459</li><li>1.73205080756888</li><li>1</li><li>1</li><li>3</li><li>2</li><li>1</li></ol>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">mapply</span><span class="p">(</span><span class="n">rep</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 5 × 5 of type int</caption>
+<tbody>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+	<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">mapply</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="n">x^2</span><span class="o">+</span><span class="n">y</span><span class="p">,</span>
+       <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span>  
+       <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">))</span>
+<span class="nf">mapply</span><span class="p">(</span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="nf">c</span><span class="p">(</span><span class="n">x^3</span><span class="p">,</span> <span class="n">y^2</span><span class="p">),</span>
+       <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span>  
+       <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>5</li><li>9</li><li>15</li></ol>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<table>
+<caption>A matrix: 2 × 3 of type dbl</caption>
+<tbody>
+	<tr><td> 1</td><td> 8</td><td>27</td></tr>
+	<tr><td>16</td><td>25</td><td>36</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>tapply</strong></li>
+</ul>
+<p>Aplica determinada função a um conjunto de dados (matrix, data.frame) condicionados a outra variável.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="n">n</span><span class="o">&lt;-</span> <span class="m">20</span>
+<span class="n">fac</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="n">sexo</span> <span class="o">=</span> <span class="nf">factor</span><span class="p">(</span><span class="nf">rep_len</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">levels</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span>  <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Homem&quot;</span><span class="p">,</span> <span class="s">&quot;Mulher&quot;</span><span class="p">)),</span>
+                  <span class="n">renda</span> <span class="o">=</span> <span class="nf">round</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="m">2000</span><span class="p">,</span><span class="m">50</span><span class="p">),</span><span class="m">2</span><span class="p">)</span>
+                 <span class="p">)</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">fac</span><span class="o">$</span><span class="n">sexo</span><span class="p">)</span>
+<span class="nf">tapply</span><span class="p">(</span><span class="n">fac</span><span class="o">$</span><span class="n">renda</span><span class="p">,</span> <span class="n">fac</span><span class="o">$</span><span class="n">sexo</span><span class="p">,</span> <span class="n">sum</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_text output_subarea ">
+<pre>
+ Homem Mulher 
+    10     10 </pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+<div class="output_html rendered_html output_subarea ">
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>Homem</dt><dd>20065.76</dd><dt>Mulher</dt><dd>20362.73</dd></dl>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
